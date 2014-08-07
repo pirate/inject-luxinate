@@ -10,16 +10,19 @@ document.luxinate = function(songurl, type, source) {
     var url = document.luxinate_location + "?url=" + encodeURIComponent(songurl)+"&type="+encodeURIComponent(type)+"&source="+encodeURIComponent(source);
 
     var xhReq = new XMLHttpRequest();
-    xhReq.open("GET", url, false);
-    xhReq.send(null);
-    //return false;
-    var serverResponse = xhReq.responseText;
-    console.log(serverResponse);
+    xhReq.onreadystatechange = function() {
+        if (xhReq.readyState === 4 && xhReq.status) {
+            console.log(xhReq.status, xhReq.responseText);
+        }
+    }
+
+    xhReq.open("GET", url);
+    xhReq.send();
     return false;
 }
 
 // site-specific luxinate button template
-document.luxbutton_template = ['<a href="#" onclick="','" class="sc-button sc-button-small sc-button-responsive sc-button-download sc-button-lux" title="Download this track with Luxinate." tabindex="0">Lux</a>"'];
+document.luxbutton_template = ['<a onclick="','" class="sc-button sc-button-small sc-button-responsive sc-button-download sc-button-lux" title="Download this track with Luxinate." tabindex="0">Lux</a>"'];
 
 // generic luxbutton builder based on site-specific luxbutton_template, url, type, and source
 var get_luxbutton = function(url, type, source) {

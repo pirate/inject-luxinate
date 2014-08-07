@@ -10,11 +10,14 @@ document.luxinate = function(songurl, type, source) {
     var url = document.luxinate_location + "?url=" + encodeURIComponent(songurl)+"&type="+encodeURIComponent(type)+"&source="+encodeURIComponent(source);
 
     var xhReq = new XMLHttpRequest();
-    xhReq.open("GET", url, false);
-    xhReq.send(null);
-    //return false;
-    var serverResponse = xhReq.responseText;
-    console.log(serverResponse);
+    xhReq.onreadystatechange = function() {
+        if (xhReq.readyState === 4 && xhReq.status) {
+            console.log(xhReq.status, xhReq.responseText);
+        }
+    }
+
+    xhReq.open("GET", url);
+    xhReq.send();
     return false;
 }
 

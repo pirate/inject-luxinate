@@ -1,5 +1,4 @@
-<?xml version="1.0" ?>
-<root>
+<?xml version="1.0" ?><root>
     <about>True</about>
     <info>
         <author contact="ritashugisha@gmail.com">Ritashugisha</author>
@@ -14,6 +13,6 @@
         <video_opt default="-1">22</video_opt>
         <audio_opt default=".mp3">.mp3</audio_opt>
     </settings>
-    <history results="0">
-    </history>
+    <history results="6">
+    <entry time="1407430417.22" title="Nice And Slow">http://soundcloud.com/domhewas/nice-and-slow</entry><entry time="1407430583.58" title="Everchanging">http://soundcloud.com/haywyre/everchanging</entry><entry time="1407430780.1" title="Laura Welsh - Break The Fall (Gemini Remix)">https://www.youtube.com/watch?v=gGxigYYw-ig</entry><entry time="1407431556.04" title="The Next Afternoon">http://soundcloud.com/forwardthinkers/the-next-afternoon</entry><entry time="1407431569.52" title="Nouvel Âge - Killer">http://soundcloud.com/huhwhatandwhere/nouvel-age-killer</entry><entry time="1407431607.28" title="Ciara — Sorry (Dave Luxe Refix)">http://soundcloud.com/dave-luxe/ciara-sorry-dave-luxe-refix</entry></history>
 </root>

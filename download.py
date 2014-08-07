@@ -27,5 +27,5 @@ elif source == "user":
     Luxinate.Luxinate().user(url)
     reload(Luxinate)
     Luxinate.Download().multiDetermine(media_type)
-
+print "Downloaded."
 exit(0)
