@@ -14,7 +14,7 @@ This utility extends Luxinate's capabilities into the browser with two parts:
 ----
 
 #Quickstart
-This assumes that you're already comfortable with the command line, you are already running a webserver with php enabled on your mac, and you have Alfred 2 with the Luxinate workflow installed and configured.
+This assumes that you're already comfortable with the command line, and that you are already running a webserver with php enabled on your mac.
 
 
 ```bash
@@ -30,7 +30,7 @@ sudo visudo
 _www    ALL=NOPASSWD: /path/to/inject-luxinate/download.py
 ```
 
-That will allow you to call luxinate using a URL from your browser.  After doing this step, opening [http://localhost/lux/lux.php?url=(...)](http://localhost/lux/lux.php?url=https://soundcloud.com/c-m-b-3/my-nyan-cat-dubstep-remix) should begin to download the Nyan Cat song to the download_dir location set in `luxinate/_config.xml`.
+That will allow you to call Luxinate using a URL from your browser.  After doing this step, opening [http://localhost/lux/lux.php?url=(...)](http://localhost/lux/lux.php?url=https://soundcloud.com/c-m-b-3/my-nyan-cat-dubstep-remix) should begin to download the Nyan Cat song to the download_dir location set in `luxinate/_config.xml`.
   
 Now for part two, getting the download buttons injected:
 
