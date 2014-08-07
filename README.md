@@ -17,7 +17,7 @@ This utility extends Luxinate's capabilities into the browser with two parts:
 This assumes that you're already comfortable with the command line, you are already running a webserver with php enabled on your mac, and you have Alfred 2 with the Luxinate workflow installed and configured.
 
 
-```
+```bash
 git clone https://github.com/pirate/inject-luxinate
 ln -s inject-luxinate /Library/WebServer/Documents/lux
 
