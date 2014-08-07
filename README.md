@@ -10,6 +10,9 @@ This utility extends Luxinate's capabilities into the browser with two parts:
 - a simple web-api hosted locally to call Luxinate and begin song downloads
 - a set of scripts to inject into pages that insert download buttons which call the web-api
 
+[!](soundcloud-screenshot.PNG)
+[!](youtube-screenshot.PNG)
+
 ----
 
 #Quickstart
@@ -25,7 +28,7 @@ sudo visudo
 _www    ALL=NOPASSWD: /path/to/luxify-inject/download.py
 ```
 
-That will allow you to call luxinate using a URL from your browser.  After doing this step, opening [http://localhost/lux/lux.php?url=(...)](http://localhost/lux/lux.php?url=https://soundcloud.com/c-m-b-3/my-nyan-cat-dubstep-remix) should begin to download the Nyan Cat song to whatever folder you've set in Luxinate Settings through Alfred 2.
+That will allow you to call luxinate using a URL from your browser.  After doing this step, opening [http://localhost/lux/lux.php?url=(...)](http://localhost/lux/lux.php?url=https://soundcloud.com/c-m-b-3/my-nyan-cat-dubstep-remix) should begin to download the Nyan Cat song to the download_dir location set in `luxinate/_config.xml`.
   
 Now for part two, getting the download buttons injected:
 
