@@ -28,4 +28,11 @@ document.luxinate = luxinate;
 document.getluxbutton = getluxbutton;
 document.luxifypage = luxifypage;
 
-window.addEventListener('load', document.luxifypage, false);
+document.luxifypage()
+
+if (window.addEventListener) {
+    window.addEventListener('load', document.luxifypage, false);
+} 
+else if (window.attachEvent) {
+    window.attachEvent('onload', document.luxifypage);// Microsoft
+}
