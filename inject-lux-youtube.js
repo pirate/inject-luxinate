@@ -1,38 +1,62 @@
-var luxinate = function(songurl) {
-    console.log("Fetching " + songurl);
-    var url = "http://localhost/lux/lux.php?url=" + songurl;
+// location of the hosted lux php script (can be on another machine or server)
+document.luxinate_location = "http://localhost/lux/lux.php"
+
+// AJAX call to luxinate download script
+document.luxinate = function(songurl, type, source) {
+    if (!type) type = "audio";
+    if (!source) source = "individual";
+    console.log("Fetching " source + " " + type + " " + songurl);
+
+    var url = document.luxinate_location + "?url=" + encodeURIComponent(songurl)+"&type="+encodeURIComponent(type)+"&source="+encodeURIComponent(source);
+
     var xhReq = new XMLHttpRequest();
-    xhReq.open("GET", "http://localhost/lux/lux.php?url="+songurl, false);
+    xhReq.open("GET", url, false);
     xhReq.send(null);
     var serverResponse = xhReq.responseText;
     console.log(serverResponse);
 }
 
-var getluxbutton = function() {
-    var songurl = document.location.toString()
-    var button = '<span><button class="yt-uix-button yt-uix-button-size-default yt-uix-button-text yt-uix-button-empty yt-uix-button-has-icon  yt-uix-tooltip" type="button" onclick="document.luxinate(\'' + songurl + '\')" title="Luxinate" data-position="bottomright" data-orientation="vertical" data-force-position="true" data-button-toggle="true" data-tooltip-text="Luxinate"><span class="yt-uix-button-icon-wrapper"><img src="http://localhost/lux/lux.png" style="height: 20px;" class="yt-uix-button-icon yt-sprite" alt="Luxinate"></span></button></span>';
-    return button;
+// site-specific luxinate button template
+document.luxbutton_template = ['<span><button onclick="', '" class="yt-uix-button yt-uix-button-size-default yt-uix-button-text yt-uix-button-empty yt-uix-button-has-icon  yt-uix-tooltip" type="button" title="Luxinate" data-position="bottomright" data-orientation="vertical" data-force-position="true" data-button-toggle="true" data-tooltip-text="Luxinate"><span class="yt-uix-button-icon-wrapper"><img src="http://localhost/lux/lux.png" style="height: 20px;" class="yt-uix-button-icon yt-sprite" alt="Luxinate"></span></button></span>'];
+
+// generic luxbutton builder based on site-specific luxbutton_template, url, type, and source
+var get_luxbutton = function(url, type, source) {
+    if (!type) type = "audio";
+    if (!source) source = "individual";
+    var onclickevent = "document.luxinate('"+url+"','"+type+"','"+source+"')";
+    return document.luxbutton_template[0] + onclickevent + document.luxbutton_template[1]
 }
 
-var luxifypage = function() {
-    console.log("LUXIFY PAGE");
+// specific button builders (url extraction logic may change based on source and type)
+var get_individual_luxbutton = function() {
+    var url = document.location.toString();
+    return get_luxbutton(url, 'audio', 'individual');
+}
+var get_user_luxbutton = function() {
+    var url = document.location.toString();
+    return get_luxbutton(url, 'audio', 'user');
+}
+var get_playlist_luxbutton = function() {
+    var url = document.location.toString();
+    return get_luxbutton(url, 'audio', 'playlist');
+}
+
+// site-specific injection logic
+document.inject_luxbuttons = function() {
     var buttongroup = document.getElementById('watch-like-dislike-buttons');
     if (buttongroup && !(buttongroup.classList.contains('haslux'))) {
-            buttongroup.innerHTML += document.getluxbutton();
+            buttongroup.innerHTML += get_individual_luxbutton();
             buttongroup.classList.add('haslux');
-            console.log("Added luxbutton.");
+            console.log("Added individual luxbutton.");
     }
 }
 
-document.luxinate = luxinate;
-document.getluxbutton = getluxbutton;
-document.luxifypage = luxifypage;
+// run once on initial pageload
+document.inject_luxbuttons();
 
-document.luxifypage()
+// run whenever ajax content gets added to the page
+//$(document).ajaxStop(document.inject_luxbuttons);
 
-if (window.addEventListener) {
-    window.addEventListener('load', document.luxifypage, false);
-} 
-else if (window.attachEvent) {
-    window.attachEvent('onload', document.luxifypage);// Microsoft
-}
+// run again on pageload finish
+if (window.addEventListener) window.addEventListener('load', document.inject_luxbuttons, false);    // Normal, Sane W3C-compliant browsers (chrome, firefox, safari)
+else if (window.attachEvent) window.attachEvent('onload', document.inject_luxbuttons);              // Ugh, Microsoft (IE7+)

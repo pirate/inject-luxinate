@@ -1,5 +1,4 @@
-<?xml version="1.0" ?>
-<root>
+<?xml version="1.0" ?><root>
     <info>
     <author contact="ritashugisha@gmail.com">Ritashugisha</author>
 <version release="1.0a">7.01</version>
@@ -14,6 +13,5 @@
 <multi_pid default="-1">-1</multi_pid>
 </settings>
 <history results="0">
-</history>
 <about>True</about>
 </root>
