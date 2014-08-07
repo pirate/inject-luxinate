@@ -1,8 +1,8 @@
-luxinate-injector
-=================
+Download the Un-Downloadable
+=========================================
 
 
-This is a lightweight utility that allows you to inject a download button into web pages that Ritashugisha's [Luxinate](https://github.com/Ritashugisha/Luxinate) is capable of downloading songs from (e.g. youtube and soundcloud).
+This is a lightweight utility that allows you to inject a download button into web pages that Ritashugisha's [Luxinate](https://github.com/Ritashugisha/Luxinate) is capable of downloading audio from (e.g. youtube and soundcloud).
 
 [Luxinate](http://www.alfredforum.com/topic/3238-luxinate-download-video-and-audio-from-youtube-and-soundcloud/) is an awesome plugin for [Alfred 2](http://www.alfredapp.com/) that allows you to download Audio and Video (using youtube-dl) from a variety of sites, by simply providing a link to the page.
 
