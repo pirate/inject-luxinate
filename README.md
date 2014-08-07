@@ -1,6 +1,7 @@
 luxinate-injector
 =================
 
+
 This is a lightweight utility that allows you to inject a download button into web pages that Ritashugisha's [Luxinate](https://github.com/Ritashugisha/Luxinate) is capable of downloading songs from (e.g. youtube and soundcloud).
 
 [Luxinate](http://www.alfredforum.com/topic/3238-luxinate-download-video-and-audio-from-youtube-and-soundcloud/) is an awesome plugin for [Alfred 2](http://www.alfredapp.com/) that allows you to download Audio and Video (using youtube-dl) from a variety of sites, by simply providing a link to the page.
@@ -9,9 +10,6 @@ This utility extends Luxinate's capabilities into the browser with two parts:
 
 - a simple web-api hosted locally to call Luxinate and begin song downloads
 - a set of scripts to inject into pages that insert download buttons which call the web-api
-
-[!](soundcloud-screenshot.PNG)
-[!](youtube-screenshot.PNG)
 
 ----
 
@@ -53,4 +51,10 @@ Now for part two, getting the download buttons injected:
 
 You should now be able to visit your [Soundcloud Stream](http://soundcloud.com/stream) and see little triangle icons labelled "∆ Lux" next to every song.  Clicking on that icon will download the song. Give it a shot!
 
+![](soundcloud-screenshot.PNG)
+
 For [Youtube](https://www.youtube.com/watch?v=QH2-TGUlwu4) you can find the "∆" Luxinate button next to the thumbs-up and thumbs-down under the video.
+
+![](youtube-screenshot.PNG)
+
+![](download-screenshot.PNG)
