@@ -18,12 +18,12 @@ This assumes that you're already comfortable with the command line, you are alre
 
 
 ```
-git clone https://github.com/pirate/luxinate-injector
-ln -s luxinate-injector /Library/WebServer/Documents/lux
+git clone https://github.com/pirate/inject-luxinate
+ln -s inject-luxinate /Library/WebServer/Documents/lux
 sudo visudo
 
 # insert the following line at the bottom (with the correct path), then save and close
-_www    ALL=NOPASSWD: /path/to/luxify-inject/download.py
+_www    ALL=NOPASSWD: /path/to/inject-luxinate/download.py
 ```
 
 That will allow you to call luxinate using a URL from your browser.  After doing this step, opening [http://localhost/lux/lux.php?url=(...)](http://localhost/lux/lux.php?url=https://soundcloud.com/c-m-b-3/my-nyan-cat-dubstep-remix) should begin to download the Nyan Cat song to the download_dir location set in `luxinate/_config.xml`.
