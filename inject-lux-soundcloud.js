@@ -5,15 +5,17 @@ document.luxinate_location = "http://localhost/lux/lux.php"
 document.luxinate = function(songurl, type, source) {
     if (!type) type = "audio";
     if (!source) source = "individual";
-    console.log("Fetching " source + " " + type + " " + songurl);
+    console.log("Fetching " + source + " " + type + " " + songurl);
 
     var url = document.luxinate_location + "?url=" + encodeURIComponent(songurl)+"&type="+encodeURIComponent(type)+"&source="+encodeURIComponent(source);
 
     var xhReq = new XMLHttpRequest();
     xhReq.open("GET", url, false);
     xhReq.send(null);
+    //return false;
     var serverResponse = xhReq.responseText;
     console.log(serverResponse);
+    return false;
 }
 
 // site-specific luxinate button template
@@ -29,37 +31,52 @@ var get_luxbutton = function(url, type, source) {
 
 // specific button builders (url extraction logic may change based on source and type)
 var get_individual_luxbutton = function(buttongroup) {
-    var url = "http://soundcloud.com" + buttongroup.parents('.sound').find('.soundTitle__title').attr('href');
-    return get_luxbutton(url);
+    var url = buttongroup.parents('.sound, .soundBadge').find('a').filter('.soundTitle__title').attr('href');
+    if (!url && buttongroup.parents('.sound, .soundBadge').find('span').filter('.soundTitle__title').length) url = document.location.toString();
+    if (!url) return "";
+    return get_luxbutton("http://soundcloud.com" + url);
 }
 var get_user_luxbutton = function() {
-    var url = "http://soundcloud.com" + buttongroup.parents('.sound').find('.soundTitle__title').attr('href');
-    return get_luxbutton(url, "audio", "user");
+    var url = buttongroup.parents('.sound, .soundBadge').find('a').filter('.soundTitle__title').attr('href');
+    if (!url && buttongroup.parents('.sound, .soundBadge').find('span').filter('.soundTitle__title').length) url = document.location.toString();
+    if (!url) return "";
+    return get_luxbutton("http://soundcloud.com" + url, "audio", "user");
 }
 var get_playlist_luxbutton = function(buttongroup) {
-    var url = "http://soundcloud.com" + buttongroup.parents('.sound').find('.soundTitle__title').attr('href');
-    return get_luxbutton(url, "audio", "playlist");
+    var url = buttongroup.parents('.sound, .soundBadge').find('a').filter('.soundTitle__title').attr('href');
+    if (!url && buttongroup.parents('.sound, .soundBadge').find('span').filter('.soundTitle__title').length) url = document.location.toString();
+    if (!url) return "";
+    return get_luxbutton("http://soundcloud.com" + url, "audio", "playlist");
 }
 
 // site-specific injection logic
 document.inject_luxbuttons = function() {
-    $('.playlist .sound__soundActions').not('.haslux').each(function(i, obj) {
-        if ($(obj).find(".sc-button-group").length !== 0) {
-            var buttongroup = $(obj).find(".sc-button-group").first();
-            var luxbutton = $(get_playlist_luxbutton(buttongroup));
-            buttongroup.append(luxbutton);
-            $(obj).addClass('haslux');
+    $('.playlist').filter('.listenContext').find('.soundActions').not('.haslux').each(function(i, obj) {
+        var buttongroup = $(obj).children('.sc-button-group').first();
+        var button_html = get_playlist_luxbutton(buttongroup);
+        if (button_html) {
+            buttongroup.append($(button_html));
             console.log("Added playlist luxbutton.");
         }
+        $(obj).addClass('haslux');
     });
-    $('.sound__soundActions').not('.haslux').each(function(i, obj) {
-        if ($(obj).find(".sc-button-group").length !== 0) {
-            var buttongroup = $(obj).find(".sc-button-group").first();
-            var luxbutton = $(get_individual_luxbutton(buttongroup));
-            buttongroup.append(luxbutton);
-            $(obj).addClass('haslux');
+    $('.playlist').filter('.streamContext').find('.soundActions').not('.haslux').each(function(i, obj) {
+        var buttongroup = $(obj).children('.sc-button-group').first();
+        var button_html = get_playlist_luxbutton(buttongroup);
+        if (button_html) {
+            buttongroup.append($(button_html));
+            console.log("Added playlist luxbutton.");
+        }
+        $(obj).addClass('haslux');
+    });
+    $('.soundActions').not('.haslux').each(function(i, obj) {
+        var buttongroup = $(obj).children('.sc-button-group').first();
+        var button_html = get_individual_luxbutton(buttongroup);
+        if (button_html) {
+            buttongroup.append($(button_html));
             console.log("Added individual luxbutton.");
         }
+        $(obj).addClass('haslux');
     });
 }
 

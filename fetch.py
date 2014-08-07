@@ -5,11 +5,11 @@ import os
 # make sure to add line to sudoers file
 # _www    ALL=NOPASSWD: /path/to/inject-luxify/download.py
 
-types = ("video", "audio", "both")
-sources = ("individual", "playlist", "user")
+types = ["video", "audio", "both"]
+sources = ["individual", "playlist", "user"]
 
 try:
-    url = sys.argv[1].replace('"', "")
+    url = sys.argv[1]
 except IndexError:
     print "No URL Specified."
     exit(1)
@@ -40,7 +40,7 @@ except:
 
 command = '/usr/bin/sudo ./download.py %s %s %s' % (url, media_type, source)
 p = os.popen(command)
-print "Downloading %s %s %s" % (url, media_type, source)
+print "Downloading url:%s type:%s source:%s" % (url, media_type, source)
 print p.read()
 exit(0)
     

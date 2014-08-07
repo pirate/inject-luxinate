@@ -5,15 +5,17 @@ document.luxinate_location = "http://localhost/lux/lux.php"
 document.luxinate = function(songurl, type, source) {
     if (!type) type = "audio";
     if (!source) source = "individual";
-    console.log("Fetching " source + " " + type + " " + songurl);
+    console.log("Fetching " + source + " " + type + " " + songurl);
 
     var url = document.luxinate_location + "?url=" + encodeURIComponent(songurl)+"&type="+encodeURIComponent(type)+"&source="+encodeURIComponent(source);
 
     var xhReq = new XMLHttpRequest();
     xhReq.open("GET", url, false);
     xhReq.send(null);
+    //return false;
     var serverResponse = xhReq.responseText;
     console.log(serverResponse);
+    return false;
 }
 
 // site-specific luxinate button template
@@ -30,14 +32,17 @@ var get_luxbutton = function(url, type, source) {
 // specific button builders (url extraction logic may change based on source and type)
 var get_individual_luxbutton = function() {
     var url = document.location.toString();
+    if (!url) return "";
     return get_luxbutton(url, 'audio', 'individual');
 }
 var get_user_luxbutton = function() {
     var url = document.location.toString();
+    if (!url) return "";
     return get_luxbutton(url, 'audio', 'user');
 }
 var get_playlist_luxbutton = function() {
     var url = document.location.toString();
+    if (!url) return "";
     return get_luxbutton(url, 'audio', 'playlist');
 }
 
@@ -45,9 +50,12 @@ var get_playlist_luxbutton = function() {
 document.inject_luxbuttons = function() {
     var buttongroup = document.getElementById('watch-like-dislike-buttons');
     if (buttongroup && !(buttongroup.classList.contains('haslux'))) {
-            buttongroup.innerHTML += get_individual_luxbutton();
+            var button_html = get_individual_luxbutton();
+            if (button_html) {
+                buttongroup.innerHTML += button_html;
+                console.log("Added individual luxbutton.");
+            }
             buttongroup.classList.add('haslux');
-            console.log("Added individual luxbutton.");
     }
 }
 

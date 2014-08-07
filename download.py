@@ -8,7 +8,7 @@ try:
     source = sys.argv[3]
     assert len(url) < 800
     assert media_type in "123"
-    assert source in ("individual", "playlist", "user")
+    assert source in ["individual", "playlist", "user"]
 except:
     print "Invalid input %s" % sys.argv
     exit(1)

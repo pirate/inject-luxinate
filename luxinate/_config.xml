@@ -1,17 +1,19 @@
-<?xml version="1.0" ?><root>
+<?xml version="1.0" ?>
+<root>
+    <about>True</about>
     <info>
-    <author contact="ritashugisha@gmail.com">Ritashugisha</author>
-<version release="1.0a">7.01</version>
-<program description="Alfred.v2 Streamed Media Downloader">Luxinate</program>
-<python required="2.7">2.7</python>
-</info>
-<settings>
-    <download_dir default="/Users/nick/Downloads/">/Users/nick/Desktop/</download_dir>
-<video_opt default="-1">22</video_opt>
-<audio_opt default=".mp3">.mp3</audio_opt>
-<progress_bar default="False">True</progress_bar>
-<multi_pid default="-1">-1</multi_pid>
-</settings>
-<history results="0">
-<about>True</about>
+        <author contact="ritashugisha@gmail.com">Ritashugisha</author>
+        <version release="1.0a">7.01</version>
+        <program description="Alfred.v2 Streamed Media Downloader">Luxinate</program>
+        <python required="2.7">2.7</python>
+    </info>
+    <settings>
+        <download_dir default="/Users/nick/Downloads/">/Users/nick/Desktop/</download_dir>
+        <progress_bar default="False">True</progress_bar>
+        <multi_pid default="-1">-1</multi_pid>
+        <video_opt default="-1">22</video_opt>
+        <audio_opt default=".mp3">.mp3</audio_opt>
+    </settings>
+    <history results="0">
+    </history>
 </root>
