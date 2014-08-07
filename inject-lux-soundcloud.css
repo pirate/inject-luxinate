@@ -1,0 +1,4 @@
+.sc-button-small.sc-button-lux:before {
+    background-image: url('http://localhost/lux/lux.png') !important;
+    background-size: contain !important;
+}
