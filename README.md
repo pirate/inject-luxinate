@@ -20,8 +20,12 @@ This assumes that you're already comfortable with the command line, you are alre
 ```
 git clone https://github.com/pirate/inject-luxinate
 ln -s inject-luxinate /Library/WebServer/Documents/lux
-sudo visudo
 
+nano inject-luxinate/luxinate/_config.xml
+# change this line to your actual preffered download directory, then save and close
+<download_dir default="/Users/nick/Downloads/">/Users/nick/Desktop/</download_dir>
+
+sudo visudo
 # insert the following line at the bottom (with the correct path), then save and close
 _www    ALL=NOPASSWD: /path/to/inject-luxinate/download.py
 ```
