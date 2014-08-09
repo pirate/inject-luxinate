@@ -7,12 +7,12 @@
         <python required="2.7">2.7</python>
     </info>
     <settings>
-        <download_dir default="/Users/nick/Downloads/">/Users/nick/Desktop/</download_dir>
+        <download_dir default="/Users/nick/Downloads/">/Users/nick/add_to_itunes</download_dir>
         <progress_bar default="False">True</progress_bar>
         <multi_pid default="-1">-1</multi_pid>
         <video_opt default="-1">22</video_opt>
         <audio_opt default=".mp3">.mp3</audio_opt>
     </settings>
-    <history results="9">
-    <entry time="1407430417.22" title="Nice And Slow">http://soundcloud.com/domhewas/nice-and-slow</entry><entry time="1407430583.58" title="Everchanging">http://soundcloud.com/haywyre/everchanging</entry><entry time="1407430780.1" title="Laura Welsh - Break The Fall (Gemini Remix)">https://www.youtube.com/watch?v=gGxigYYw-ig</entry><entry time="1407431556.04" title="The Next Afternoon">http://soundcloud.com/forwardthinkers/the-next-afternoon</entry><entry time="1407431569.52" title="Nouvel Âge - Killer">http://soundcloud.com/huhwhatandwhere/nouvel-age-killer</entry><entry time="1407431607.28" title="Ciara — Sorry (Dave Luxe Refix)">http://soundcloud.com/dave-luxe/ciara-sorry-dave-luxe-refix</entry><entry time="1407435239.6" title="Nyan Cat (Dubstep Remix)">https://soundcloud.com/c-m-b-3/my-nyan-cat-dubstep-remix</entry><entry time="1407455461.92" title="Nyan Cat (Dubstep Remix)">https://soundcloud.com/c-m-b-3/my-nyan-cat-dubstep-remix</entry><entry time="1407555166.75" title="Tinush - Sandburg (Original)">http://soundcloud.com/tinush/tinush-sandburg-original</entry></history>
+    <history results="0">
+    </history>
 </root>
