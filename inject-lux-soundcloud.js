@@ -37,19 +37,22 @@ var get_individual_luxbutton = function(buttongroup) {
     var url = buttongroup.parents('.sound, .soundBadge').find('a').filter('.soundTitle__title').attr('href');
     if (!url && buttongroup.parents('.sound, .soundBadge').find('span').filter('.soundTitle__title').length) url = document.location.toString();
     if (!url) return "";
-    return get_luxbutton("http://soundcloud.com" + url);
+    if (!(/^http/).test(url)) url = "http://soundcloud.com" + url;
+    return get_luxbutton(url);
 }
 var get_user_luxbutton = function() {
     var url = buttongroup.parents('.sound, .soundBadge').find('a').filter('.soundTitle__title').attr('href');
     if (!url && buttongroup.parents('.sound, .soundBadge').find('span').filter('.soundTitle__title').length) url = document.location.toString();
     if (!url) return "";
-    return get_luxbutton("http://soundcloud.com" + url, "audio", "user");
+    if (!(/^http/).test(url)) url = "http://soundcloud.com" + url;
+    return get_luxbutton(url, "audio", "user");
 }
 var get_playlist_luxbutton = function(buttongroup) {
     var url = buttongroup.parents('.sound, .soundBadge').find('a').filter('.soundTitle__title').attr('href');
     if (!url && buttongroup.parents('.sound, .soundBadge').find('span').filter('.soundTitle__title').length) url = document.location.toString();
     if (!url) return "";
-    return get_luxbutton("http://soundcloud.com" + url, "audio", "playlist");
+    if (!(/^http/).test(url)) url = "http://soundcloud.com" + url;
+    return get_luxbutton(url, "audio", "playlist");
 }
 
 // site-specific injection logic
