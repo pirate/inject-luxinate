@@ -2,7 +2,7 @@ Download the Un-Downloadable
 =========================================
 
 
-This is a lightweight utility that allows you to inject a download button into web pages that Ritashugisha's [Luxinate](https://github.com/Ritashugisha/Luxinate) is capable of downloading audio from (e.g. youtube and soundcloud).
+This is a lightweight utility that allows you to inject a download button into web pages that Ritashugisha's [Luxinate](https://github.com/Ritashugisha/Luxinate) (backed by youtubedl) is capable of downloading audio from (e.g. youtube, soundcloud, bandcamp...).
 
 [Luxinate](http://www.alfredforum.com/topic/3238-luxinate-download-video-and-audio-from-youtube-and-soundcloud/) is an awesome plugin for [Alfred 2](http://www.alfredapp.com/) that allows you to download Audio and Video (using youtube-dl) from a variety of sites, by simply providing a link to the page.
 
@@ -10,6 +10,9 @@ This utility extends Luxinate's capabilities into the browser with two parts:
 
 - a simple web-api hosted locally to call Luxinate and begin song downloads
 - a set of scripts to inject into pages that insert download buttons which call the web-api
+
+
+**WARNING:** This is massively insecure, hacky, and overcomplicated, proceed at your own risk.  The same thing can be accomplished with many simpler chrome extensions, or by simply using youtube-dl directly.  I chose the hard way because I like Lux's interface and interaction with Alfred.
 
 ----
 
