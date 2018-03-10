@@ -16,7 +16,8 @@ This utility extends Luxinate's capabilities into the browser with two parts:
 
 ----
 
-#Quickstart
+# Quickstart
+
 This assumes that you're already comfortable with the command line, and that you are already running a webserver with php enabled on your mac.
 
 
